@@ -1,0 +1,128 @@
+{
+  "feature_names": [
+    "age",
+    "education_level",
+    "avg_sleep_hours",
+    "screen_time_hours",
+    "social_media_hours",
+    "study_hours_per_day",
+    "exercise_hours_per_week",
+    "caffeine_drinks_per_day",
+    "stress_level",
+    "anxiety_score",
+    "uses_sleep_app",
+    "gender_Male",
+    "gender_Non-binary",
+    "gender_Prefer not to say"
+  ],
+  "lin_reg": {
+    "mse": 0.08239127373619778,
+    "r2": 0.37777703966919474,
+    "coefficients": {
+      "stress_level": -0.1552,
+      "avg_sleep_hours": 0.0948,
+      "social_media_hours": -0.0861,
+      "anxiety_score": 0.0232,
+      "gender_Male": -0.013,
+      "screen_time_hours": 0.0065,
+      "gender_Prefer not to say": -0.0048,
+      "caffeine_drinks_per_day": 0.0047,
+      "study_hours_per_day": -0.0044,
+      "gender_Non-binary": -0.004,
+      "age": 0.0035,
+      "education_level": 0.0025,
+      "uses_sleep_app": -0.0022,
+      "exercise_hours_per_week": 0.001
+    },
+    "top3": [
+      "stress_level",
+      "avg_sleep_hours",
+      "social_media_hours"
+    ]
+  },
+  "ridge_reg": {
+    "mse": 0.08238808333136222,
+    "r2": 0.3778011337637682
+  },
+  "logreg": {
+    "class_counts_before": {
+      "1": 1611,
+      "0": 789
+    },
+    "use_balanced": "True",
+    "confusion_matrix": [
+      [
+        172,
+        0
+      ],
+      [
+        0,
+        428
+      ]
+    ],
+    "auc": 1.0,
+    "accuracy": 1.0,
+    "precision_1": 1.0,
+    "recall_1": 1.0,
+    "f1_1": 1.0
+  },
+  "threshold_table": [
+    {
+      "threshold": 0.3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "threshold": 0.4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "threshold": 0.5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "threshold": 0.6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "threshold": 0.7,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  ],
+  "best_f1_threshold": {
+    "threshold": 0.3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "c_comparison": {
+    "baseline": {
+      "C": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "auc": 1.0
+    },
+    "strong_reg": {
+      "C": 0.01,
+      "precision": 0.9925558312655087,
+      "recall": 0.9345794392523364,
+      "auc": 0.9927597261464899
+    }
+  },
+  "bootstrap_auc_diff": {
+    "mean_diff": 0.007217209617876824,
+    "ci_low": 0.0032393160677582967,
+    "ci_high": 0.012330384263423515,
+    "excludes_zero": true,
+    "n_valid": 500
+  }
+}
