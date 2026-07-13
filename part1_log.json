@@ -1,0 +1,317 @@
+{
+  "shape": [
+    3000,
+    15
+  ],
+  "dtypes_raw": {
+    "student_id": "int64",
+    "age": "int64",
+    "gender": "str",
+    "education_level": "str",
+    "avg_sleep_hours": "float64",
+    "screen_time_hours": "float64",
+    "social_media_hours": "float64",
+    "study_hours_per_day": "float64",
+    "exercise_hours_per_week": "float64",
+    "caffeine_drinks_per_day": "int64",
+    "stress_level": "int64",
+    "anxiety_score": "int64",
+    "gpa": "float64",
+    "uses_sleep_app": "bool",
+    "feels_burned_out": "bool"
+  },
+  "null_table": {
+    "student_id": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "age": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "gender": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "education_level": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "avg_sleep_hours": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "screen_time_hours": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "social_media_hours": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "study_hours_per_day": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "exercise_hours_per_week": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "caffeine_drinks_per_day": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "stress_level": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "anxiety_score": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "gpa": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "uses_sleep_app": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "feels_burned_out": {
+      "null_count": 0,
+      "null_pct": 0.0
+    }
+  },
+  "cols_over_20pct_null": [],
+  "n_duplicates": 0,
+  "rows_removed_dupes": 0,
+  "mem_before": 615646,
+  "mem_after": 276548,
+  "skewness": {
+    "caffeine_drinks_per_day": 0.7829,
+    "exercise_hours_per_week": 0.3632,
+    "anxiety_score": -0.3482,
+    "age": 0.1822,
+    "stress_level": -0.1818,
+    "gpa": -0.0935,
+    "avg_sleep_hours": 0.0879,
+    "study_hours_per_day": 0.0874,
+    "social_media_hours": 0.017,
+    "screen_time_hours": 0.0017
+  },
+  "top_skew_col": "caffeine_drinks_per_day",
+  "top2_skew_cols": [
+    "caffeine_drinks_per_day",
+    "exercise_hours_per_week"
+  ],
+  "iqr_report": {
+    "anxiety_score": {
+      "Q1": 6.0,
+      "Q3": 9.0,
+      "IQR": 3.0,
+      "lower": 1.5,
+      "upper": 13.5,
+      "n_outliers": 8
+    },
+    "gpa": {
+      "Q1": 2.98,
+      "Q3": 3.51,
+      "IQR": 0.5299999999999998,
+      "lower": 2.1850000000000005,
+      "upper": 4.305,
+      "n_outliers": 8
+    }
+  },
+  "mean_gpa_by_education": {
+    "Graduate": 3.217,
+    "Undergraduate": 3.246,
+    "High School": 3.255
+  },
+  "corr_stress_anxiety_pearson": 0.738169721206662,
+  "sleep_by_burnout_medians": {
+    "false": 8.0,
+    "true": 7.2
+  },
+  "pearson_corr_matrix": {
+    "age": {
+      "age": 1.0,
+      "avg_sleep_hours": -0.0087,
+      "screen_time_hours": -0.0241,
+      "social_media_hours": -0.0383,
+      "study_hours_per_day": -0.0084,
+      "exercise_hours_per_week": 0.0069,
+      "caffeine_drinks_per_day": -0.0047,
+      "stress_level": 0.0151,
+      "anxiety_score": -0.0186,
+      "gpa": 0.0047
+    },
+    "avg_sleep_hours": {
+      "age": -0.0087,
+      "avg_sleep_hours": 1.0,
+      "screen_time_hours": -0.5873,
+      "social_media_hours": -0.4531,
+      "study_hours_per_day": 0.0101,
+      "exercise_hours_per_week": -0.0024,
+      "caffeine_drinks_per_day": 0.0012,
+      "stress_level": -0.4959,
+      "anxiety_score": -0.3609,
+      "gpa": 0.5223
+    },
+    "screen_time_hours": {
+      "age": -0.0241,
+      "avg_sleep_hours": -0.5873,
+      "screen_time_hours": 1.0,
+      "social_media_hours": 0.7723,
+      "study_hours_per_day": -0.0064,
+      "exercise_hours_per_week": -0.0204,
+      "caffeine_drinks_per_day": -0.0193,
+      "stress_level": 0.5283,
+      "anxiety_score": 0.3771,
+      "gpa": -0.492
+    },
+    "social_media_hours": {
+      "age": -0.0383,
+      "avg_sleep_hours": -0.4531,
+      "screen_time_hours": 0.7723,
+      "social_media_hours": 1.0,
+      "study_hours_per_day": 0.0074,
+      "exercise_hours_per_week": -0.0119,
+      "caffeine_drinks_per_day": -0.0341,
+      "stress_level": 0.3967,
+      "anxiety_score": 0.2716,
+      "gpa": -0.4691
+    },
+    "study_hours_per_day": {
+      "age": -0.0084,
+      "avg_sleep_hours": 0.0101,
+      "screen_time_hours": -0.0064,
+      "social_media_hours": 0.0074,
+      "study_hours_per_day": 1.0,
+      "exercise_hours_per_week": 0.0163,
+      "caffeine_drinks_per_day": -0.0222,
+      "stress_level": -0.0168,
+      "anxiety_score": 0.0051,
+      "gpa": 0.0018
+    },
+    "exercise_hours_per_week": {
+      "age": 0.0069,
+      "avg_sleep_hours": -0.0024,
+      "screen_time_hours": -0.0204,
+      "social_media_hours": -0.0119,
+      "study_hours_per_day": 0.0163,
+      "exercise_hours_per_week": 1.0,
+      "caffeine_drinks_per_day": -0.0147,
+      "stress_level": -0.2881,
+      "anxiety_score": -0.2229,
+      "gpa": 0.1078
+    },
+    "caffeine_drinks_per_day": {
+      "age": -0.0047,
+      "avg_sleep_hours": 0.0012,
+      "screen_time_hours": -0.0193,
+      "social_media_hours": -0.0341,
+      "study_hours_per_day": -0.0222,
+      "exercise_hours_per_week": -0.0147,
+      "caffeine_drinks_per_day": 1.0,
+      "stress_level": -0.0127,
+      "anxiety_score": -0.0232,
+      "gpa": 0.0087
+    },
+    "stress_level": {
+      "age": 0.0151,
+      "avg_sleep_hours": -0.4959,
+      "screen_time_hours": 0.5283,
+      "social_media_hours": 0.3967,
+      "study_hours_per_day": -0.0168,
+      "exercise_hours_per_week": -0.2881,
+      "caffeine_drinks_per_day": -0.0127,
+      "stress_level": 1.0,
+      "anxiety_score": 0.7382,
+      "gpa": -0.558
+    },
+    "anxiety_score": {
+      "age": -0.0186,
+      "avg_sleep_hours": -0.3609,
+      "screen_time_hours": 0.3771,
+      "social_media_hours": 0.2716,
+      "study_hours_per_day": 0.0051,
+      "exercise_hours_per_week": -0.2229,
+      "caffeine_drinks_per_day": -0.0232,
+      "stress_level": 0.7382,
+      "anxiety_score": 1.0,
+      "gpa": -0.3839
+    },
+    "gpa": {
+      "age": 0.0047,
+      "avg_sleep_hours": 0.5223,
+      "screen_time_hours": -0.492,
+      "social_media_hours": -0.4691,
+      "study_hours_per_day": 0.0018,
+      "exercise_hours_per_week": 0.1078,
+      "caffeine_drinks_per_day": 0.0087,
+      "stress_level": -0.558,
+      "anxiety_score": -0.3839,
+      "gpa": 1.0
+    }
+  },
+  "top_corr_pair": [
+    "screen_time_hours",
+    "social_media_hours"
+  ],
+  "top_corr_value": 0.7722597915338918,
+  "imputation_report": {
+    "caffeine_drinks_per_day": {
+      "mean": 1.7786666666666666,
+      "median": 2.0,
+      "skew": 0.7828535226508804
+    },
+    "exercise_hours_per_week": {
+      "mean": 3.5419,
+      "median": 3.4,
+      "skew": 0.3631724523170778
+    }
+  },
+  "spearman_pearson_diff_top3": [
+    {
+      "col_a": "avg_sleep_hours",
+      "col_b": "gpa",
+      "pearson": 0.5222618851184557,
+      "spearman": 0.5019839164266771,
+      "abs_diff": 0.02027796869177867
+    },
+    {
+      "col_a": "social_media_hours",
+      "col_b": "avg_sleep_hours",
+      "pearson": -0.4530814478997694,
+      "spearman": -0.4328046662239214,
+      "abs_diff": 0.02027678167584801
+    },
+    {
+      "col_a": "screen_time_hours",
+      "col_b": "social_media_hours",
+      "pearson": 0.7722597915338918,
+      "spearman": 0.7523141598638046,
+      "abs_diff": 0.019945631670087227
+    }
+  ],
+  "group_agg": {
+    "Graduate": {
+      "mean": 3.2167,
+      "std": 0.3861,
+      "count": 430
+    },
+    "High School": {
+      "mean": 3.2548,
+      "std": 0.3834,
+      "count": 889
+    },
+    "Undergraduate": {
+      "mean": 3.2462,
+      "std": 0.3754,
+      "count": 1681
+    }
+  },
+  "highest_mean_grp": "High School",
+  "highest_std_grp": "Graduate",
+  "mean_ratio": 1.011835656707402
+}
