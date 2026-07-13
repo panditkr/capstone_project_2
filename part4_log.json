@@ -1,0 +1,142 @@
+{
+  "system_prompt": "You are an assistant that explains a machine learning model's burnout prediction for a student to a non-technical academic advisor. Given the student's feature values, the model's predicted class (0 = not burned out, 1 = burned out), and the model's predicted probability, output ONLY a single valid JSON object with exactly these fields: {\"prediction_label\": \"burned_out|not_burned_out\", \"confidence_level\": \"low|medium|high\", \"top_reason\": \"string\", \"second_reason\": \"string\", \"next_step\": \"string\"}. Do not include any text outside the JSON object.",
+  "user_prompt_template": "Student feature values (JSON):\n{feature_json}\n\nModel predicted_class: {predicted_class}\nModel predicted_probability (of burnout): {predicted_probability}\n\nExplain this prediction as a JSON object following the required schema.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "prediction_label": {
+        "type": "string"
+      },
+      "confidence_level": {
+        "type": "string"
+      },
+      "top_reason": {
+        "type": "string"
+      },
+      "second_reason": {
+        "type": "string"
+      },
+      "next_step": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "prediction_label",
+      "confidence_level",
+      "top_reason",
+      "second_reason",
+      "next_step"
+    ]
+  },
+  "demo_table": [
+    {
+      "input": {
+        "age": 20,
+        "gender": "Female",
+        "education_level": "Undergraduate",
+        "avg_sleep_hours": 4.5,
+        "screen_time_hours": 9.5,
+        "social_media_hours": 6.0,
+        "study_hours_per_day": 2.0,
+        "exercise_hours_per_week": 0.5,
+        "caffeine_drinks_per_day": 5,
+        "stress_level": 9,
+        "anxiety_score": 9,
+        "uses_sleep_app": false
+      },
+      "predicted_class": 1,
+      "predicted_probability": 0.9979,
+      "llm_output": "{\"prediction_label\": \"burned_out\", \"confidence_level\": \"high\", \"top_reason\": \"Stress level of 9.0 is the strongest driver of this prediction.\", \"second_reason\": \"Anxiety score of 9.0 reinforces the burned out signal.\", \"next_step\": \"Recommend a wellbeing check-in and sleep-habit review.\"}",
+      "valid_json": "pass",
+      "guardrail": "simulated",
+      "explanation": {
+        "prediction_label": "burned_out",
+        "confidence_level": "high",
+        "top_reason": "Stress level of 9.0 is the strongest driver of this prediction.",
+        "second_reason": "Anxiety score of 9.0 reinforces the burned out signal.",
+        "next_step": "Recommend a wellbeing check-in and sleep-habit review."
+      }
+    },
+    {
+      "input": {
+        "age": 22,
+        "gender": "Male",
+        "education_level": "Graduate",
+        "avg_sleep_hours": 8.2,
+        "screen_time_hours": 3.0,
+        "social_media_hours": 1.5,
+        "study_hours_per_day": 4.0,
+        "exercise_hours_per_week": 6.0,
+        "caffeine_drinks_per_day": 1,
+        "stress_level": 3,
+        "anxiety_score": 2,
+        "uses_sleep_app": true
+      },
+      "predicted_class": 0,
+      "predicted_probability": 0.0349,
+      "llm_output": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"high\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Anxiety score of 2.0 reinforces the not burned out signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}",
+      "valid_json": "pass",
+      "guardrail": "simulated",
+      "explanation": {
+        "prediction_label": "not_burned_out",
+        "confidence_level": "high",
+        "top_reason": "Overall stress and anxiety indicators dominate the model's decision.",
+        "second_reason": "Anxiety score of 2.0 reinforces the not burned out signal.",
+        "next_step": "No immediate intervention needed; continue routine monitoring."
+      }
+    },
+    {
+      "input": {
+        "age": 18,
+        "gender": "Non-binary",
+        "education_level": "High School",
+        "avg_sleep_hours": 6.5,
+        "screen_time_hours": 6.0,
+        "social_media_hours": 4.0,
+        "study_hours_per_day": 3.0,
+        "exercise_hours_per_week": 2.5,
+        "caffeine_drinks_per_day": 2,
+        "stress_level": 6,
+        "anxiety_score": 6,
+        "uses_sleep_app": false
+      },
+      "predicted_class": 0,
+      "predicted_probability": 0.2149,
+      "llm_output": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"medium\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Anxiety score of 6.0 reinforces the not burned out signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}",
+      "valid_json": "pass",
+      "guardrail": "simulated",
+      "explanation": {
+        "prediction_label": "not_burned_out",
+        "confidence_level": "medium",
+        "top_reason": "Overall stress and anxiety indicators dominate the model's decision.",
+        "second_reason": "Anxiety score of 6.0 reinforces the not burned out signal.",
+        "next_step": "No immediate intervention needed; continue routine monitoring."
+      }
+    }
+  ],
+  "ab_table": [
+    {
+      "input": "Input 1",
+      "temp0": "{\"prediction_label\": \"burned_out\", \"confidence_level\": \"high\", \"top_reason\": \"Stress level of 9.0 is the strongest driver of this prediction.\", \"second_reason\": \"Anxiety score of 9.0 reinforces the burned out signal.\", \"next_step\": \"Recommend a wellbeing check-in and sleep-habit review.\"}",
+      "temp07": "{\"prediction_label\": \"burned_out\", \"confidence_level\": \"low\", \"top_reason\": \"The model leans heavily on the stress/anxiety features for this case.\", \"second_reason\": \"Anxiety score of 9.0 reinforces the burned out signal.\", \"next_step\": \"Consider a brief follow-up survey to confirm the model's read.\"}"
+    },
+    {
+      "input": "Input 2",
+      "temp0": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"high\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Anxiety score of 2.0 reinforces the not burned out signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}",
+      "temp07": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"low\", \"top_reason\": \"The model leans heavily on the stress/anxiety features for this case.\", \"second_reason\": \"Anxiety score of 2.0 reinforces the not burned out signal.\", \"next_step\": \"Consider a brief follow-up survey to confirm the model's read.\"}"
+    },
+    {
+      "input": "Input 3",
+      "temp0": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"medium\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Anxiety score of 6.0 reinforces the not burned out signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}",
+      "temp07": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"high\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Anxiety score of 6.0 reinforces the not burned out signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}"
+    }
+  ],
+  "pii_test": {
+    "pii_input": "Please explain this student's record, contact them at jane.doe@university.edu for follow-up.",
+    "pii_result": null,
+    "pii_status": "blocked",
+    "clean_input": "Please explain this student's burnout prediction based on their sleep and stress features.",
+    "clean_result": "{\"prediction_label\": \"not_burned_out\", \"confidence_level\": \"low\", \"top_reason\": \"Overall stress and anxiety indicators dominate the model's decision.\", \"second_reason\": \"Secondary lifestyle factors provide weaker supporting signal.\", \"next_step\": \"No immediate intervention needed; continue routine monitoring.\"}",
+    "clean_status": "simulated"
+  }
+}
